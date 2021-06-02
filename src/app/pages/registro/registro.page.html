@@ -1,0 +1,83 @@
+<ion-content class="ion-padding">
+  <h3 class="titulo">Registrarse</h3>
+  <form [formGroup]="formulario">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Nombre completo</ion-label>
+        <ion-input type="text" formControlName="nombre"></ion-input>
+      </ion-item>
+      <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)"
+      class="alert alert-danger">
+        <div *ngIf="nombre.errors?.required">
+          Campo requerido
+        </div>
+      </div>
+      <ion-item>
+        <ion-label>Ciudad</ion-label>
+        <ion-select ok-text="Selecionar" cancel-text="Cancelar" formControlName="ciudad">
+          <ion-select-option *ngFor="let ciudad of ciudades" [value]='ciudad'>
+            {{ciudad.nombre}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="ciudad.invalid && (ciudad.dirty || ciudad.touched)"
+      class="alert alert-danger">
+        <div *ngIf="ciudad.errors?.required">
+          Campo requerido
+        </div>
+      </div>
+      <ion-item>
+        <ion-label>Fecha de nacimiento</ion-label>
+        <ion-datetime display-format="YYYY MMMM DD" max="2021-05-15" placeholder="Select Date" formControlName="fechaNacimiento"></ion-datetime>
+      </ion-item>
+      <div *ngIf="fechaNacimiento.invalid && (fechaNacimiento.dirty || fechaNacimiento.touched)"
+      class="alert alert-danger">
+        <div *ngIf="fechaNacimiento.errors?.required">
+          Campo requerido
+        </div>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Correo electronico</ion-label>
+        <ion-input type="email" formControlName="correo" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"></ion-input>
+      </ion-item>
+      <div *ngIf="correo.invalid && (correo.dirty || correo.touched)"
+      class="alert alert-danger">
+        <div *ngIf="correo.errors?.required">
+          Campo requerido
+        </div>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password" (focusout)="verificarPassword()"></ion-input>
+      </ion-item>
+      <div *ngIf="password.invalid && (password.dirty || password.touched)"
+          class="alert alert-danger">
+
+        <div *ngIf="password.errors?.required">
+          Campo requerido
+        </div>
+        <div *ngIf="password.errors?.minlength">
+          Debe contener minimo 6 caracteres
+        </div>
+      </div>
+      <ion-item>
+        <ion-label position="floating">Verificar contraseña</ion-label>
+        <ion-input type="password" formControlName="Verifpassword" (focusout)="verificarPassword()"></ion-input>
+      </ion-item>
+      <p *ngIf="formulario.get('Verifpassword').hasError('minLength')">Debe contener minimo 6 caracteres</p>
+      <ion-item>
+        <ion-checkbox color="dark" class="ion-margin-end" formControlName="checkTerminos"></ion-checkbox>
+        <ion-label>Acepto los terminos y condiciones</ion-label>
+      </ion-item>
+      <div class="ctn-btn-registrar">
+        <ion-button color="dark" (click)="registrarUsuario()"[disabled]="formulario.invalid">
+          Registrarse
+        </ion-button>
+      </div>
+      <div class="ctn-link-iniciar">
+        <p>¿Ya tienes una cuenta?</p>
+        <a routerLink="/login">Iniciar sesion</a>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

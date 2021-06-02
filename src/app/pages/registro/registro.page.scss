@@ -1,0 +1,30 @@
+.ctn-btn-registrar {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+.ctn-link-iniciar {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.ctn-link-iniciar a {
+     color: black;
+    text-decoration: none;
+    font-weight: 550;
+    margin-left: 10px;
+    line-height: 50px;
+}
+.titulo {
+    text-align: center;
+    font-size: 30px;
+}
+.alert-danger{
+    padding-left: 15px;
+}
+.alert-danger div {
+    font-size: 13px;
+    color: red;
+}
