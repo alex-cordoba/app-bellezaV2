@@ -3,8 +3,13 @@
 	"appName": "app-bellezaV2",
 	"webDir": "www",
 	"plugins": {
-		"SplashScreen": {
-			"launchAutoHide": false
+		"CapacitorFirebaseAuth": {
+			"providers": [
+				"facebook.com",
+				"phone"
+			],
+			"languageCode": "en",
+			"nativeAuth": false
 		},
 		"LocalNotifications": {
 			"smallIcon": "ic_stat_icon_config_sample",

@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },  {
+    path: 'verificar-tel',
+    loadChildren: () => import('./pages/verificar-tel/verificar-tel.module').then( m => m.VerificarTelPageModule)
   },
+
 ];
 
 @NgModule({
