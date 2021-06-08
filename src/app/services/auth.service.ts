@@ -12,7 +12,7 @@ import { cfaSignInPhone } from 'capacitor-firebase-auth';
 export class AuthService {
   tipoUsuario: boolean;
   public loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-
+  public numeroTelefonico: string;
   constructor(
     private angularFireAuth: AngularFireAuth,
     private db: AngularFirestore,
@@ -82,9 +82,14 @@ export class AuthService {
       }).catch(err => reject(err))
     })
   }
-  public verificarTel() {
-    cfaSignInPhone('+573184083717').subscribe((user) => {
-      console.log(user);
-    })
+  public verificarTel(numero: string) {
+    console.log(`+57${numero}`);
+    if (numero) {
+      cfaSignInPhone(`+57${numero}`).subscribe((user) => {
+        console.log(user);
+      }), (err) => {
+        console.log(err);
+      }
+    }
   }
 }

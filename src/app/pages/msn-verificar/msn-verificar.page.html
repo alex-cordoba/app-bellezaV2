@@ -1,0 +1,10 @@
+<ion-content>
+  <ion-img class="img-verificar" src="/assets/mensaje-de-texto.png"></ion-img>
+  <h3 class="ion-text-center">Ingresa el codigo de verificacion</h3>
+  <p class="ion-text-center">Te llegará un mensaje de texto con tu codigo de verificacion</p>
+  <ion-item>
+    <ion-label position="floating">Ingresa el codigo</ion-label>
+    <ion-input type="number" name="msn" [(ngModel)]="msn"></ion-input>
+  </ion-item>
+  <ion-button expand="block" (click)="verificarMsn()">Verificar</ion-button>
+</ion-content>

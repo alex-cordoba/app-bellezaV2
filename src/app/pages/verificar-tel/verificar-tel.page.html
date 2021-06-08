@@ -4,7 +4,8 @@
   <p class="ion-text-center">Ingresa tu numero de celular para recibir un codigo de verificacíon</p>
   <ion-item>
     <ion-label position="floating">Numero telefonico</ion-label>
-    <ion-input type="number" name="telefono" [(ngModel)]="telefono"></ion-input>
+    <ion-input type="number" name="telefono" [(ngModel)]="telefono" (keyup)="verificarLongitud()"></ion-input>
   </ion-item>
+  <p class="err-longitud" *ngIf="minTelefono">El numero debe tener 10 digitos</p>
   <ion-button expand="block" (click)="verificarTel()">Verificar</ion-button>
 </ion-content>

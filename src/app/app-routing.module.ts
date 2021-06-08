@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'verificar-tel',
     loadChildren: () => import('./pages/verificar-tel/verificar-tel.module').then( m => m.VerificarTelPageModule)
   },
+  {
+    path: 'msn-verificar',
+    loadChildren: () => import('./pages/msn-verificar/msn-verificar.module').then( m => m.MsnVerificarPageModule)
+  },
 
 ];
 

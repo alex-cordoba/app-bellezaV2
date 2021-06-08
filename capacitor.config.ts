@@ -9,7 +9,7 @@ const config: CapacitorConfig = {
     CapacitorFirebaseAuth: {
       providers: ["facebook.com", "phone"],
       languageCode: "en",
-      nativeAuth: false,
+      nativeAuth: true,
     },
     LocalNotifications: {
       smallIcon: 'ic_stat_icon_config_sample',
