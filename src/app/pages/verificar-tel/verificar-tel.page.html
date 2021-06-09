@@ -7,5 +7,5 @@
     <ion-input type="number" name="telefono" [(ngModel)]="telefono" (keyup)="verificarLongitud()"></ion-input>
   </ion-item>
   <p class="err-longitud" *ngIf="minTelefono">El numero debe tener 10 digitos</p>
-  <ion-button expand="block" (click)="verificarTel()">Verificar</ion-button>
+  <ion-button expand="block" (click)="verificarTel()" class="ion-margin-top">Verificar</ion-button>
 </ion-content>

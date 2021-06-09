@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import firebase from "@firebase/app";
 import "@firebase/auth";
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { cfaSignInPhone } from 'capacitor-firebase-auth';
 
 @Injectable({
@@ -18,7 +18,9 @@ export class AuthService {
     private db: AngularFirestore,
     private zone: NgZone
   ) { }
-  init(): void {
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
     const firebaseConfig = {
       apiKey: "AIzaSyDXl8qbSy9D4KOq8I9lc_p_ckHnJ4Qol74",
       authDomain: "app-belleza.firebaseapp.com",
@@ -36,11 +38,10 @@ export class AuthService {
         firebaseUser ? this.loggedIn.next(true) : this.loggedIn.next(false);
       });
     });
+    
   }
 
   public registrarUsuario(form) {
-    console.log(form);
-    
     return new Promise((resolve, reject) => {
       this.angularFireAuth.createUserWithEmailAndPassword(form.correo, form.password).then(res => {
         if (res) {
@@ -62,7 +63,8 @@ export class AuthService {
     this.db.collection('usuarios').doc(form.correo).set({
       nombre: form.nombre,
       ciudad: form.ciudad,
-      correo: form.correo
+      correo: form.correo,
+      telefono: this.numeroTelefonico,
     })
   }
   private registrarDatosAdicionalesProfesional(form) {
@@ -70,6 +72,7 @@ export class AuthService {
       nombre: form.nombre,
       ciudad: form.ciudad,
       correo: form.correo,
+      telefono: this.numeroTelefonico,
       fechaNacimiento: form.fechaNacimiento,
       id: form.numeroIdentificacion,
       tipoId: form.idIdentificacion

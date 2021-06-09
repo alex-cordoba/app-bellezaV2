@@ -22,12 +22,14 @@ export class VerificarTelPage implements OnInit {
   }
   public verificarTel() {
     this.entraVerificar = true;
-    if (this.telefono.toString().length === 10) {
-      this.authService.verificarTel(this.telefono.toString());
-      this.authService.numeroTelefonico = this.telefono;
-      this.router.navigate(['/msn-verificar']);
-    } else {
-      this.minTelefono = true;
+    if (this.telefono) {
+      if (this.telefono.toString().length === 10) {
+        this.authService.verificarTel(this.telefono.toString());
+        this.authService.numeroTelefonico = this.telefono;
+        this.router.navigate(['/msn-verificar']);
+      } else {
+        this.minTelefono = true;
+      }
     }
   }
   public verificarLongitud() {

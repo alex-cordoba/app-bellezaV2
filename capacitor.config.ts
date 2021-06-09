@@ -8,7 +8,7 @@ const config: CapacitorConfig = {
   plugins: {
     CapacitorFirebaseAuth: {
       providers: ["facebook.com", "phone"],
-      languageCode: "en",
+      languageCode: "es",
       nativeAuth: true,
     },
     LocalNotifications: {

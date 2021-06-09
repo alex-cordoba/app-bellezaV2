@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 import { MsnVerificarPageRoutingModule } from './msn-verificar-routing.module';
 
@@ -13,8 +14,10 @@ import { MsnVerificarPage } from './msn-verificar.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    MsnVerificarPageRoutingModule
+    MsnVerificarPageRoutingModule,
+    NgxSpinnerModule
   ],
-  declarations: [MsnVerificarPage]
+  declarations: [MsnVerificarPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MsnVerificarPageModule {}

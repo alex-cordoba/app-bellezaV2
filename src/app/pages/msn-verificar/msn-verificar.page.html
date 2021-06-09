@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content class="ion-padding" [fullscreen]="true">
   <ion-img class="img-verificar" src="/assets/mensaje-de-texto.png"></ion-img>
   <h3 class="ion-text-center">Ingresa el codigo de verificacion</h3>
   <p class="ion-text-center">Te llegará un mensaje de texto con tu codigo de verificacion</p>
@@ -6,5 +6,8 @@
     <ion-label position="floating">Ingresa el codigo</ion-label>
     <ion-input type="number" name="msn" [(ngModel)]="msn"></ion-input>
   </ion-item>
-  <ion-button expand="block" (click)="verificarMsn()">Verificar</ion-button>
+  <ion-button expand="block" (click)="verificarMsn()" class="ion-margin-top">Verificar</ion-button>
+  
 </ion-content>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
